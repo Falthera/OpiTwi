@@ -2,6 +2,7 @@ name: Release
 
 on:
   push:
+    branches: [ "master" ]
     tags: [ "v*" ]
   workflow_dispatch:
 
@@ -15,12 +16,12 @@ jobs:
           distribution: 'temurin'
           java-version: '25'
       - name: Tag release
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         id: tag
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: main
+          release_branches: master
           default_bump: patch
           tag_prefix: v
       - name: Resolve version
