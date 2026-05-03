@@ -1,0 +1,14 @@
+name: OpiOwl
+main: com.opiowl.OpiOwlPlugin
+version: ${version}
+folia-supported: true
+author: OpiOwl
+commands:
+  opiowl:
+    description: OpiOwl control and diagnostics
+    usage: /opiowl <status|profile|lagreport|reload>
+    permission: opiowl.admin
+permissions:
+  opiowl.admin:
+    description: Allows access to OpiOwl admin commands
+    default: op

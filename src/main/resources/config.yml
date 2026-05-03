@@ -1,0 +1,71 @@
+optimization:
+  intensity: 60
+  mode: AUTO
+  debug: false
+
+features:
+  tickEngine: true
+  entityOptimizer: true
+  chunkOptimizer: true
+  networkOptimizer: true
+  threadingScheduler: true
+  memoryOptimizer: true
+  perceivedLatency: true
+  profiling: true
+
+safetyCaps:
+  maxEntityReductionPercent: 60
+  maxChunkThrottle: 3
+  maxTickSkip: 0.20
+
+presets:
+  SAFE:
+    intensity: 35
+    maxEntityReductionPercent: 20
+    maxChunkThrottle: 1
+    maxTickSkip: 0.05
+  PERFORMANCE:
+    intensity: 70
+    maxEntityReductionPercent: 45
+    maxChunkThrottle: 2
+    maxTickSkip: 0.12
+  EXTREME:
+    intensity: 90
+    maxEntityReductionPercent: 60
+    maxChunkThrottle: 3
+    maxTickSkip: 0.20
+
+entity:
+  sleepDistance: 48
+  mergeRadius: 1.75
+  mergeIntervalTicks: 40
+  maxMergePerTick: 300
+  aiThrottleDistance: 32
+
+tick:
+  governorIntervalTicks: 20
+  priorityLaneBudgetMspt: 10.0
+  distanceScale:
+    near: 16
+    mid: 32
+    far: 64
+
+chunks:
+  minViewDistance: 6
+  maxViewDistance: 12
+  adjustIntervalTicks: 200
+
+network:
+  batchIntervalTicks: 2
+  maxBatchSize: 64
+  smoothingWindowTicks: 4
+
+threading:
+  maxTasksPerTick: 200
+  warnQueueSize: 5000
+
+profiling:
+  sampleIntervalTicks: 20
+  historySize: 300
+  dashboardLogging: false
+  dashboardIntervalTicks: 100

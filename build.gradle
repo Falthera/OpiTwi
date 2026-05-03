@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.opiowl'
+version = project.findProperty('version') ?: '0.1.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:26.1.2.build.53-stable"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+processResources {
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    archiveFileName = "OpiOwl-26.1-v${project.version}.jar"
+}
